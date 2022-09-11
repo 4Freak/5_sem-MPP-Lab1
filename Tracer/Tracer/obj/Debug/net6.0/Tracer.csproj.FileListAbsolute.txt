@@ -1,0 +1,15 @@
+D:\BSUIR\5_Sem\MPP\Projects\_01_Tracer\Tracer\Tracer\obj\Debug\net6.0\Tracer.csproj.AssemblyReference.cache
+D:\BSUIR\5_Sem\MPP\Projects\_01_Tracer\Tracer\Tracer\obj\Debug\net6.0\Tracer.GeneratedMSBuildEditorConfig.editorconfig
+D:\BSUIR\5_Sem\MPP\Projects\_01_Tracer\Tracer\Tracer\obj\Debug\net6.0\Tracer.AssemblyInfoInputs.cache
+D:\BSUIR\5_Sem\MPP\Projects\_01_Tracer\Tracer\Tracer\obj\Debug\net6.0\Tracer.AssemblyInfo.cs
+D:\BSUIR\5_Sem\MPP\Projects\_01_Tracer\Tracer\Tracer\obj\Debug\net6.0\Tracer.csproj.CoreCompileInputs.cache
+D:\BSUIR\5_Sem\MPP\Projects\_01_Tracer\Tracer\Tracer\bin\Debug\net6.0\Tracer.exe
+D:\BSUIR\5_Sem\MPP\Projects\_01_Tracer\Tracer\Tracer\bin\Debug\net6.0\Tracer.deps.json
+D:\BSUIR\5_Sem\MPP\Projects\_01_Tracer\Tracer\Tracer\bin\Debug\net6.0\Tracer.runtimeconfig.json
+D:\BSUIR\5_Sem\MPP\Projects\_01_Tracer\Tracer\Tracer\bin\Debug\net6.0\Tracer.dll
+D:\BSUIR\5_Sem\MPP\Projects\_01_Tracer\Tracer\Tracer\bin\Debug\net6.0\Tracer.pdb
+D:\BSUIR\5_Sem\MPP\Projects\_01_Tracer\Tracer\Tracer\obj\Debug\net6.0\Tracer.dll
+D:\BSUIR\5_Sem\MPP\Projects\_01_Tracer\Tracer\Tracer\obj\Debug\net6.0\refint\Tracer.dll
+D:\BSUIR\5_Sem\MPP\Projects\_01_Tracer\Tracer\Tracer\obj\Debug\net6.0\Tracer.pdb
+D:\BSUIR\5_Sem\MPP\Projects\_01_Tracer\Tracer\Tracer\obj\Debug\net6.0\Tracer.genruntimeconfig.cache
+D:\BSUIR\5_Sem\MPP\Projects\_01_Tracer\Tracer\Tracer\obj\Debug\net6.0\ref\Tracer.dll
