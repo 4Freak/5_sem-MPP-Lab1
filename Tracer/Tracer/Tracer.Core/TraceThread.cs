@@ -11,7 +11,14 @@ namespace Tracer.Core
 	public class TraceThread
 	{
 		public int id;
-		public Stopwatch time;
-		public ConcurrentDictionary<int, TraceMethod> innerMethods;
+		public double time;
+		public IReadOnlyList <TraceMethod> innerMethods;
+
+		public TraceThread(int id, double time, IReadOnlyList<TraceMethod> innerMethods)
+		{
+			this.id = id;
+			this.time = time;
+			this.innerMethods = innerMethods;
+		}
 	}
 }

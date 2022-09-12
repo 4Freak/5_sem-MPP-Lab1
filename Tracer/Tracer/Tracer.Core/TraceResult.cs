@@ -8,6 +8,11 @@ namespace Tracer.Core
 {
 	public class TraceResult
 	{
-		
+		public IReadOnlyList<TraceThread> threads {get;}
+
+		public TraceResult(IReadOnlyList<TraceThread> threads)
+		{
+			this.threads = threads;
+		}
 	}
 }
