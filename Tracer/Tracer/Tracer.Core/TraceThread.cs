@@ -10,15 +10,15 @@ namespace Tracer.Core
 {
 	public class TraceThread
 	{
-		public int id;
-		public double time;
-		public IReadOnlyList <TraceMethod> innerMethods;
+		public int Id;
+		public double Time;
+		public IReadOnlyList <TraceMethod> InnerMethods;
 
 		public TraceThread(int id, double time, IReadOnlyList<TraceMethod> innerMethods)
 		{
-			this.id = id;
-			this.time = time;
-			this.innerMethods = innerMethods;
+			this.Id = id;
+			this.Time = time;
+			this.InnerMethods = innerMethods;
 		}
 	}
 }

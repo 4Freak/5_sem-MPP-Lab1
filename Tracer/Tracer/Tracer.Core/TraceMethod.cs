@@ -9,17 +9,17 @@ namespace Tracer.Core
 {
 	public class TraceMethod
 	{
-		public string name {get; private set;}
-		public string className {get; private set;}
-		public TimeSpan time {get; private set;}
-		public IReadOnlyList<TraceMethod> innerMethods {get;}
+		public string Name {get; private set;}
+		public string ClassName {get; private set;}
+		public TimeSpan Time {get; private set;}
+		public IReadOnlyList<TraceMethod> InnerMethods {get;}
 
 		public TraceMethod(string name, string className, TimeSpan time, IReadOnlyList<TraceMethod> innerMethods)
 		{
-			this.name = name;
-			this.className = className;
-			this.time = time;
-			this.innerMethods = innerMethods;
+			this.Name = name;
+			this.ClassName = className;
+			this.Time = time;
+			this.InnerMethods = innerMethods;
 		}
 	}
 }

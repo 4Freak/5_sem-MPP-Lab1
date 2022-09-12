@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
+﻿using System.Collections.Concurrent;
 using System.Diagnostics;
-using System.Linq;
 using System.Reflection;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Tracer.Core
 {
@@ -27,17 +21,17 @@ namespace Tracer.Core
 
 		public struct MethodInfo
 		{
-			public string name {get; set; }
-			public string className {get; set; }
-			public Stopwatch stopwatch {get; set; }			
-			public List<MethodInfo> innerMethods {get; set; }
+			public string Name {get; set; }
+			public string ClassName {get; set; }
+			public Stopwatch Stopwatch {get; set; }			
+			public List<MethodInfo> InnerMethods {get; set; }
 
-			public MethodInfo(string Name, string ClassName, Stopwatch Stopwatch)
+			public MethodInfo(string name, string className)
 			{
-				name = Name;
-				className = ClassName;	
-				stopwatch = Stopwatch;
-				innerMethods = new List<MethodInfo>();
+				Name = name;
+				ClassName = className;	
+				Stopwatch = new Stopwatch();
+				InnerMethods = new List<MethodInfo>();
 			}
 		}
 		
@@ -52,16 +46,50 @@ namespace Tracer.Core
 		public void StartTrace()
         {
             var stackTrace = new StackTrace();
-            StackFrame[] stackFrames = stackTrace.GetFrames();
-            DebugStackTraceOutput(stackFrames);
+			MethodBase ? method = null;
+			StackFrame ? frame = stackTrace.GetFrame(1);
 
+			if (frame != null)
+			{
+				method = frame.GetMethod();
+				
+				if (method != null)
+				{
+					string ? className = method.DeclaringType.Name;
+					if (className == null)
+					{
+						className = string.Empty;
+					}
+					var methodInfo = new MethodInfo(method.Name, className);
+
+					int threadId = Thread.CurrentThread.ManagedThreadId;
+					var threadInfo = _tracerThreads.GetOrAdd(threadId, new ThreadInfo());
+
+					if (threadInfo.RunningMethods.Count > 0)
+					{
+						var parentMethod = threadInfo.RunningMethods.Peek();
+						parentMethod.InnerMethods.Add(methodInfo);
+					}
+					else
+					{
+						threadInfo.RootMethod.Add(methodInfo);
+					}
+
+					threadInfo.RunningMethods.Push(methodInfo);
+					methodInfo.Stopwatch.Start();
+				}
+			}
 
         }
         public void StopTrace()
         {
-			var stackTrace = new StackTrace();
-			StackFrame[] stackFrames = stackTrace.GetFrames();
-
+			int threadId = Thread.CurrentThread.ManagedThreadId;
+			try
+			{
+				MethodInfo methodInfo = _tracerThreads[threadId].RunningMethods.Pop();
+				methodInfo.Stopwatch.Stop();
+			}
+			catch (InvalidOperationException){ }
         }
 
 		public TraceResult GetTraceResult()
