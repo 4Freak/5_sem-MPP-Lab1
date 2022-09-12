@@ -94,8 +94,28 @@ namespace Tracer.Core
 
 		public TraceResult GetTraceResult()
 		{
+			List<TraceThread> threads = new List<TraceThread>();
+			foreach(var thread in _tracerThreads)
+			{
+				List<TraceMethod> methods = new List<TraceMethod>();
+				foreach(var method in thread.Value.RootMethod)
+				{
+					methods.Add(new TraceMethod(method.Name, method.ClassName, method.Stopwatch.Elapsed, GetInnerMethod(method)));
+				}
+				threads.Add(new TraceThread(thread.Key, methods));
+			}
 			return null;
 		}    
+
+		private List<TraceMethod> GetInnerMethod (MethodInfo traceMethod)
+		{
+			List<TraceMethod> innerMethods = new List<TraceMethod>();
+			foreach (MethodInfo method in traceMethod.InnerMethods)
+			{
+				innerMethods.Add(new TraceMethod(method.Name, method.ClassName, method.Stopwatch.Elapsed, GetInnerMethod(method)));
+			}
+			return innerMethods;
+		}
     }
 
 }
