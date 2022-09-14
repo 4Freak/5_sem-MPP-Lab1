@@ -3,8 +3,9 @@ using System.IO;
 
 namespace Abstractions
 {
-	internal interface ITraceResultSerializer
+	public interface ITraceResultSerializer
 	{
+		string Format {get; }
 		void Serialize(TraceResult traceResult, Stream dest);		
 	}
 }
