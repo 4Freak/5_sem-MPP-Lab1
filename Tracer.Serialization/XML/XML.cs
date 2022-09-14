@@ -1,4 +1,5 @@
 ﻿using Abstractions;
+using System.Xml;
 using System.Xml.Serialization;
 using Tracer.Core;
 
@@ -22,8 +23,9 @@ namespace XML
 			}
 			var serializableTraceResult = new SerializableTraceResult(threadsInfo);
 
+			using var xmlWriter = XmlWriter.Create(dest, new XmlWriterSettings { Indent = true });
 			XmlSerializer xmlSerializer = new XmlSerializer(typeof(SerializableTraceResult));
-			xmlSerializer.Serialize(dest, serializableTraceResult);
+			xmlSerializer.Serialize(xmlWriter, serializableTraceResult);
 
 		}
 	}

@@ -5,7 +5,9 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tracer.Core", "Tracer\Tracer.Core.csproj", "{62339A8F-41FF-43DA-BE33-F3FFA8E962E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abstraction", "Abstraction\Abstraction.csproj", "{F570B77E-4826-4801-8C0B-DB1298CDC4C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abstraction", "Abstraction\Abstraction.csproj", "{F570B77E-4826-4801-8C0B-DB1298CDC4C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example", "Example\Example.csproj", "{4624FE90-22D9-45DB-92EF-70EF86C4626C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{F570B77E-4826-4801-8C0B-DB1298CDC4C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F570B77E-4826-4801-8C0B-DB1298CDC4C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F570B77E-4826-4801-8C0B-DB1298CDC4C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4624FE90-22D9-45DB-92EF-70EF86C4626C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4624FE90-22D9-45DB-92EF-70EF86C4626C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4624FE90-22D9-45DB-92EF-70EF86C4626C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4624FE90-22D9-45DB-92EF-70EF86C4626C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

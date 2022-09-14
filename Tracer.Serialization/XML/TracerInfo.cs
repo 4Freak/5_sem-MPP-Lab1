@@ -12,7 +12,7 @@ namespace XML
 		[XmlAttribute("time")]
 		public string Time;
 
-		[XmlAttribute("methods")]
+		[XmlElement("methods")]
 		public List<MethodInfo> Methods;
 
 		public ThreadInfo(int id, string time, List<MethodInfo> methods)
@@ -20,6 +20,13 @@ namespace XML
 			Id = id;
 			Time = time;
 			Methods = methods;
+		}
+
+		public ThreadInfo()
+		{
+			Id = 0;
+			Time = String.Empty;
+			Methods	= new List<MethodInfo>();
 		}
 	}
 
@@ -35,15 +42,23 @@ namespace XML
 		[XmlAttribute("time")]
 		public string Time;
 
-		[XmlAttribute("methods")]
+		[XmlElement("methods")]
 		public List<MethodInfo> Methods;
 
 		public MethodInfo(string name, string className, TimeSpan time, List <MethodInfo> methods)
 		{
 			Name = name;
 			ClassName = className;
-			Time = String.Format("{0:f0ms}", time.TotalMilliseconds);
+			Time = String.Format("{0:f} ms", time.TotalMilliseconds);
 			Methods = methods;
+		}
+
+		public MethodInfo()
+		{
+			Name = String.Empty;
+			ClassName = String.Empty;
+			Time = String.Empty;
+			Methods = new List<MethodInfo>();
 		}
 		public static List<MethodInfo> GetInnerMethods (TraceMethod traceMethod)
 		{
@@ -66,6 +81,8 @@ namespace XML
 		{
 			Threads = threads;
 		}
+
+		public SerializableTraceResult(){}
 	}
 }
 

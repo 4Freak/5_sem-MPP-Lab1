@@ -31,7 +31,7 @@ namespace YAML
 		{
 			Name = name;
 			ClassName = className;
-			Time = String.Format("{0:f0ms}", time.TotalMilliseconds);
+			Time = String.Format("{0:f} ms", time.TotalMilliseconds);
 			Methods = methods;
 		}
 
@@ -53,6 +53,7 @@ namespace YAML
 		{
 			Threads = threads;
 		}
+
 	}
 }
 

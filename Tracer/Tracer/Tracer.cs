@@ -4,7 +4,7 @@ using System.Reflection;
 
 namespace Tracer.Core
 {
-    internal class Tracer : ITracer
+    public class Tracer : ITracer
     {
 		private ConcurrentDictionary<int, ThreadInfo> _tracerThreads = new ConcurrentDictionary<int, ThreadInfo>();
         
@@ -104,7 +104,7 @@ namespace Tracer.Core
 				}
 				threads.Add(new TraceThread(thread.Key, methods));
 			}
-			return null;
+			return new TraceResult(threads);
 		}    
 
 		private List<TraceMethod> GetInnerMethod (MethodInfo traceMethod)

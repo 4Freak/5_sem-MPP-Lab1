@@ -1,5 +1,6 @@
 ﻿using Abstractions;
-using System.Xml.Serialization;
+using YamlDotNet.Serialization;
+using YamlDotNet.Serialization.NamingConventions;
 using Tracer.Core;
 
 namespace YAML
@@ -22,8 +23,15 @@ namespace YAML
 			}
 			var serializableTraceResult = new SerializableTraceResult(threadsInfo);
 
-			XmlSerializer xmlSerializer = new XmlSerializer(typeof(SerializableTraceResult));
-			xmlSerializer.Serialize(dest, serializableTraceResult);
+			var serializer = new SerializerBuilder()
+				.WithNamingConvention(CamelCaseNamingConvention.Instance)
+				.Build();
+
+			var YAMLString = serializer.Serialize(serializableTraceResult);
+			
+			using var streamWriter = new StreamWriter(dest);
+			streamWriter.WriteLine(YAMLString);
+			streamWriter.Flush();
 
 		}
 	}
