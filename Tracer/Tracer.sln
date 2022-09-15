@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abstraction", "Abstraction\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example", "Example\Example.csproj", "{4624FE90-22D9-45DB-92EF-70EF86C4626C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{54FFDC82-1A85-43C5-A0BF-988DAECDEA84}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{54FFDC82-1A85-43C5-A0BF-988DAECDEA84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serialization", "Serialization\Serialization.csproj", "{BFBC0F90-A202-443C-BE34-331485114EEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{54FFDC82-1A85-43C5-A0BF-988DAECDEA84}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54FFDC82-1A85-43C5-A0BF-988DAECDEA84}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54FFDC82-1A85-43C5-A0BF-988DAECDEA84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFBC0F90-A202-443C-BE34-331485114EEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFBC0F90-A202-443C-BE34-331485114EEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFBC0F90-A202-443C-BE34-331485114EEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFBC0F90-A202-443C-BE34-331485114EEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
