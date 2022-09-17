@@ -55,7 +55,7 @@ namespace Tracer.Core
 				
 				if (method != null)
 				{
-					string ? className = method.DeclaringType.Name;
+					string ? className = method.DeclaringType?.Name;
 					if (className == null)
 					{
 						className = string.Empty;
@@ -63,7 +63,9 @@ namespace Tracer.Core
 					var methodInfo = new MethodInfo(method.Name, className);
 
 					int threadId = Thread.CurrentThread.ManagedThreadId;
-					var threadInfo = _tracerThreads.GetOrAdd(threadId, new ThreadInfo());
+
+					// '_ => new ThreadInfo()' allow you to not create 'ThreadInfo' if GetOrAdd -> Get
+					var threadInfo = _tracerThreads.GetOrAdd(threadId, _ => new ThreadInfo());
 
 					if (threadInfo.RunningMethods.Count > 0)
 					{
@@ -86,6 +88,7 @@ namespace Tracer.Core
 			int threadId = Thread.CurrentThread.ManagedThreadId;
 			try
 			{
+			//Try get
 				MethodInfo methodInfo = _tracerThreads[threadId].RunningMethods.Pop();
 				methodInfo.Stopwatch.Stop();
 			}

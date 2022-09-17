@@ -32,7 +32,8 @@ namespace Example
 
 			var traceResult = tracer.GetTraceResult();
 
-			var serializers = PluginLoader.GetSerializers();
+			var pluginLoader = new PluginLoader();
+			var serializers = pluginLoader.GetSerializers();
 			TraceResultSerializer.SerializeToFiles(serializers, traceResult, "notRes");
 		}
 	}

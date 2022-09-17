@@ -71,7 +71,8 @@ namespace Tests
 			});
 			thread1.Start();
 
-			Thread.Sleep(00);
+			// Better use more reliable interprocess comminucation
+			Thread.Sleep(100);
 
 			var thread2 = new Thread(() =>
 			{

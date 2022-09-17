@@ -10,10 +10,10 @@ namespace Serialization
 {
 	public class PluginLoader
 	{
-		private static string PluginsPath = "Plugins";
-		private static List<ITraceResultSerializer> _serializers = new();
+		private const string PluginsPath = "Plugins";
+		private List<ITraceResultSerializer> _serializers = new();
 		
-		public static List<ITraceResultSerializer> GetSerializers()
+		public List<ITraceResultSerializer> GetSerializers()
 		{
 			_serializers.Clear();
 			var pluginDirectory = new DirectoryInfo(PluginsPath);
@@ -27,9 +27,8 @@ namespace Serialization
 			{
 				Assembly assembly = Assembly.LoadFrom(file);
 				var types = assembly.GetTypes().
-					Where(t => t.GetInterfaces().
-					Where(i => i.FullName == typeof(ITraceResultSerializer).FullName).Any());
-
+					Where(t => t.IsAssignableTo(typeof(ITraceResultSerializer)));
+					
 				foreach (var type in types)
 				{
 					if (type.FullName != null)
